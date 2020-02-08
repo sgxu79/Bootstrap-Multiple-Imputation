@@ -1,6 +1,6 @@
 # Restricted Quadratic Spline 
 #
-# Steven Xu, 2020 (roughly based on SAS code by CJ Howe, 2011 Epidemiology)
+# Steven Xu, 2020 (roughly based on SAS code by CJ Howe et al., 2011 Epidemiology)
 #
 # Arguments:
 #
