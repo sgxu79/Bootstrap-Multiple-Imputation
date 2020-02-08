@@ -20,9 +20,6 @@
 # The return value is the original dataset appended with k-1 restricted 
 # quadratic spline variables.
 
-#Generate and append restricted quadratic spline bases of a given variable
-#to the dataset, possibly separated by a factor.
-
 rqspline = function(data,x.name,k=4,equal=FALSE,probs=NULL,slice=NULL){
   if(k<3 || k>7) stop("k has to be between 3 and 7")
   if(!all(x.name%in%colnames(data))) stop("One of the variables specified is not in the dataset")
