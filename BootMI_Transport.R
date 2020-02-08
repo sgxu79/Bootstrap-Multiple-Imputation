@@ -4,7 +4,8 @@
 #
 # Main analysis code that performs bootstrap multiple imputation to construct nonparamteric
 # confidence intervals for hazard ratio (HR), incidence rate (IR) and incidence rate differ-
-# ence (IRD) in the target population. 
+# ence (IRD) in the target population. Also included codes for calculating inverse odds of 
+# sampling weights to transport trial effect to a target population. 
 #
 # The histograms of HR and IRD are plotted at the end.
 
