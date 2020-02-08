@@ -26,14 +26,14 @@ library(survey)
 source("rqspline.R")
 
 #Read in the aggregated dataset
-gen <- data.frame(read_sas("..."))
+gen = data.frame(read_sas("..."))
 
 #Some preprocessing
 group = gen$study
 
 group[which(group=="")] = "CNICS"
 
-gen_s <- data.frame(age = as.numeric(gen$AGE),cd4 = as.numeric(gen$bcd4),lrna = as.numeric(gen$lrna),
+gen_s = data.frame(age = as.numeric(gen$AGE),cd4 = as.numeric(gen$bcd4),lrna = as.numeric(gen$lrna),
                     sex = factor(gen$SEX,1:2,labels = c("Male","Female")),
                     race = factor(gen$raceth2,c(1:3,9),c("White","Black","Hispanic","Other")),
                     idu = factor(gen$ivdrugb,0:1,c("No","Yes")), aids = factor(gen$hxaids,0:1,c("No","Yes")),
