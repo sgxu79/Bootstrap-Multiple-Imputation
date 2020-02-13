@@ -215,8 +215,11 @@ mult_impute = function(data,indices){
 
 set.seed(1234,kind = "L'Ecuyer-CMRG")
 
+#Specify the number of cores to be used. (Caution: using all cores may freeze your PC)
+mycores =detectCores()
+
 #Stratified bootstrap with parallel computing
-boot.out <- boot(data=gen_s,mult_impute,R=B,strata=num_group, parallel = "snow", ncpus = 16)
+boot.out <- boot(data=gen_s,mult_impute,R=B,strata=num_group, parallel = "snow", ncpus = mycores)
 
 batch_comb = boot.out$t
 
