@@ -62,9 +62,6 @@ num_group = factor(group,c("A5095","A5142","A5175","A5202","CNICS"),labels=1:5)
 #Specify bootstrap sample size
 B = 1000
 
-#Specify imputation iterations
-mi.num = 30
-
 impute.lvl = levels(gen_s$group)
 
 number.lvl = length(impute.lvl)
@@ -75,7 +72,6 @@ mult_impute = function(data,indices){
   library(survival)
   library(mice)
   library(randomForest)
-  library(rms)
   library(survey)
   
   source("rqspline.R")
@@ -88,6 +84,7 @@ mult_impute = function(data,indices){
   
   number.lvl = length(impute.lvl)
   
+  #Specify imputation iterations
   mi.num = 30
   
   impute.df = vector("list",mi.num)
@@ -219,7 +216,7 @@ mult_impute = function(data,indices){
 set.seed(1234,kind = "L'Ecuyer-CMRG")
 
 #Stratified bootstrap with parallel computing
-boot.out <- boot(data=gen_s,mult_impute,R=1000,strata=num_group, parallel = "snow", ncpus = 16)
+boot.out <- boot(data=gen_s,mult_impute,R=B,strata=num_group, parallel = "snow", ncpus = 16)
 
 batch_comb = boot.out$t
 
